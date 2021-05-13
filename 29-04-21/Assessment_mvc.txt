@@ -1,0 +1,75 @@
+1.Explain Architecture of Spring MVC.
+
+A Spring MVC is a Java framework which is used to build web applications.It implements all the basic features of a core spring framework like Inversion of Control, Dependency Injection. 
+A Spring MVC provides an elegant solution to use MVC in spring framework by the help of DispatcherServlet.
+
+Model - A model contains the data of the application. A data can be a single object or a collection of objects.
+Controller - A controller contains the business logic of an application. Here, the @Controller annotation is used to mark the class as the controller.
+View - A view represents the provided information in a particular format. Generally, JSP+JSTL is used to create a view page. Although spring also supports other view technologies such as Apache Velocity, Thymeleaf and FreeMarker.
+Front Controller - In Spring Web MVC, the DispatcherServlet class works as the front controller. It is responsible to manage the flow of the Spring MVC application.
+
+2.What is the default RequestHandlerMapper?Name 4 Request handlers.
+Using a handler mapping you can map incoming web requests to appropriate handlers. There are some handler mappings you can use out of the box, for example, the SimpleUrlHandlerMapping or the BeanNameUrlHandlerMapping, but let's first examine the general concept of a HandlerMapping.
+
+The functionality a basic HandlerMapping provides is the delivering of a HandlerExecutionChain, which must contain the handler that matches the incoming request, and may also contain a list of handler interceptors that are applied to the request.
+ When a request comes in, the DispatcherServlet will hand it over to the handler mapping to let it inspect the request and come up with an appropriate HandlerExecutionChain.
+ Then the DispatcherServlet will execute the handler and interceptors in the chain (if any).
+
+Every Controller class can have one default request mapping method. What is the default request mapping method? If we simply don't specify any request path value in the @RequestMapping annotation of a Controller's method, that method is designated as the default request mapping method for that class.
+ So whenever a request URL just ends up with the Controller's class level request path value without any further relative path down the line, then Spring MVC will invoke this method as a response to that request.
+
+1.BeanNameUrlHandlerMapping(deafult one)
+2.SimpleUrlHandlerMapping
+3.ControllerClassNameHandlerMapping (removed in Spring 5)
+4.HandlerMapping
+
+3.What is the default ViewResolver?Explain atleast 2 View Resolvers.
+4.What are the following annotations used for.
+@Model,@Requestmapping,@ModelAttribute.
+
+
+5.What is a FrontController?Explain few Lines.
+
+A front controller is defined as a controller that handles all requests for a Web Application. DispatcherServlet servlet is the front controller in Spring MVC that intercepts every request and then dispatches 
+requests to an appropriate controller. When a web request is sent to a Spring MVC application, 
+dispatcher servlet first receives the request. Then it organizes the different components configured in Springs 
+web application context (e.g. actual request handler controller and view resolvers) or annotations present in the controller itself, all needed to handle the request.
+
+
+
+
+6.What are initialization and context parameters.
+
+The ServletContext interface , defines methods , which can be used by a web application , in order to interact with the servlet container .
+ A servlet container can pass initialization parameters , to a web application , by using what is called context parameters.
+Context parameters , can be defined either inside the web.xml file , located in : tomcat-version-number/conf/web.xml , in this case , it applies to every web application . Or it can be defined inside the web.xml file ,
+ located in : tomcat-version-number/webapps/web-app-name/WEB-INF/web.xml ,
+ in this case , it will apply only , to the specified web application .
+
+
+7.Explain different types request handling methods.
+
+@RequestMapping()
+@RequestParam()
+@ModelAttribute()
+@ResponseBody()
+
+
+
+8.Why do we use spring tag libraries?
+
+Using Spring's form tag library. As of version 2.0, Spring provides a comprehensive set of data binding-aware tags for handling form elements when using JSP and Spring Web MVC.
+ Each tag provides support for the set of attributes
+ of its corresponding HTML tag counterpart, making the tags familiar and intuitive to use.
+
+
+9.What is the advantage of using bean binding?
+
+1.Reduces the boiler plate coding
+2.light weight
+3.code can be written once and used mutiple times
+
+10.Which tag is used to scan the components of a WebApplication.
+
+Using @ComponentScan in a Spring Application. With Spring, we use the @ComponentScan annotation along with @Configuration annotation to specify the packages that we want to be scanned.
+ @ComponentScan without arguments tells Spring to scan the current package and all of its sub-packages.
